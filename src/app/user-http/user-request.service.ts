@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user'
 import { Repository } from '../repository'
 import { Observable } from 'rxjs'
@@ -12,10 +12,10 @@ export class UserRequestService {
 
   user!: User;
   repos: Repository[];
-  private username: string;
-  private repoName: string;
-  private clientId = 'a1bb7a683b14df0d15bc';
-  private clientSecret = 'a4b786074f23372af39cda791c1fa5d60f94e847';
+  username: string;
+  repoName: string;
+  private clientId: string = 'a1bb7a683b14df0d15bc';
+  private clientSecret: string = 'a4b786074f23372af39cda791c1fa5d60f94e847';
   private baseUrl: string;
   private userUrl: string
   private repoUrl: string;
@@ -24,10 +24,10 @@ export class UserRequestService {
     this.user = new User("", "", "", 0, 0, 0, new Date(), "");
     this.repos = [new Repository("", "")];
     this.username = 'emmanuelajoy'
-    this.repoName = 'goals'
+    this.repoName = ''
     this.baseUrl = "https://api.github.com/users/"
-    this.userUrl = this.baseUrl + this.username + '?accesstoken='
-    this.repoUrl = this.baseUrl + this.username + '/repos' + '?accesstoken='
+    this.userUrl = this.baseUrl + this.username
+    this.repoUrl = this.baseUrl + this.username + '/repos'
   }
 
   userRequest() {
@@ -43,7 +43,7 @@ export class UserRequestService {
     }
 
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get<ApiResponse>(this.userUrl + environment.accessToken + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret).toPromise().then(response => {
+      this.http.get<ApiResponse>(this.userUrl + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret).toPromise().then(response => {
         this.user.profileUrl = response.avatar_url
         this.user.name = response.login
         this.user.bio = response.bio
@@ -70,15 +70,21 @@ export class UserRequestService {
   }
 
   repositoryRequest(): Observable<any> {
-    return this.http.get<any>(this.repoUrl + environment.accessToken + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret)
+    return this.http.get<any>(this.repoUrl + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret)
   }
 
-  updateUserAccount(username: any) {
+  updateUserAccount(username: string) {
     this.username = username
   }
 
   updateRepo(repoName: any) {
     this.repoName = repoName
+  }
+
+  repoSearch() {
+    return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName, ({
+      headers: new HttpHeaders({ Authorization: environment.accessToken })
+    }))
   }
 
 }

@@ -12,9 +12,19 @@ export class MyGithubComponent implements OnInit {
 
   user!: User;
   repos!: Repository[];
-  username!: string;
+  username: string = 'emmanuelajoy';
   constructor(private userService: UserRequestService) {
 
+  }
+
+  myGithubAccount() {
+    this.userService.userRequest()
+    this.user = this.userService.user
+    console.log(this.user)
+    this.userService.repositoryRequest().subscribe((data) => {
+      console.log(data)
+      this.repos = data
+    })
   }
 
   findUserAccount() {
@@ -23,14 +33,14 @@ export class MyGithubComponent implements OnInit {
     this.user = this.userService.user
     console.log(this.user)
     this.userService.repositoryRequest().subscribe((data) => {
-      console.log(data)
       this.repos = data
+      console.log(data)
     })
 
   }
 
   ngOnInit(): void {
-
+    this.myGithubAccount()
   }
 
 }

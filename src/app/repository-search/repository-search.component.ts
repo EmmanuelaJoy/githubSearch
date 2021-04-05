@@ -14,13 +14,14 @@ export class RepositorySearchComponent implements OnInit {
   constructor(private userService: UserRequestService) { }
 
   findRepository() {
-    this.userService.updateRepo(this.repoName)
-    this.userService.repositoryRequest().subscribe((data) => {
-      console.log(data)
-      this.repos = data
+    this.userService.updateRepo(this.repoName);
+    this.userService.repoSearch().subscribe((data) => {
+      this.repos = data["items"];
+      console.log(this.repos)
     })
   }
   ngOnInit(): void {
+
   }
 
 }

@@ -5,13 +5,14 @@
                 [(ngModel)]="repoName" (keyup)="findRepository()" name="repository">
         </div>
     </form>
-
-    <div class="card border-success mb-3" *ngFor="let repo of repos">
-        <div class="card-header bg-transparent border-success">{{repo.name}}</div>
-        <div class="card-body">
-            <h5 class="card-title">{{repo.name}}</h5>
-            <p class="card-text">{{repo.description}}</p>
+    <div *ngIf="repos">
+        <div class="card border-success mb-3" *ngFor="let repo of repos">
+            <div class="card-header bg-transparent border-success">{{repo.name}}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{repo.name}}</h5>
+                <p class="card-text">{{repo.description}}</p>
+            </div>
+            <div class="card-footer bg-transparent border-success"></div>
         </div>
-        <div class="card-footer bg-transparent border-success"></div>
     </div>
 </div>
