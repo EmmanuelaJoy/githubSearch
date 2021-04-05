@@ -1,1 +1,17 @@
-<p>repository-search works!</p>
+<div class="container">
+    <form #repoForm='ngForm'>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter any Github repository name here"
+                [(ngModel)]="repoName" (keyup)="findRepository()" name="repository">
+        </div>
+    </form>
+
+    <div class="card border-success mb-3" *ngFor="let repo of repos">
+        <div class="card-header bg-transparent border-success">{{repo.name}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{repo.name}}</h5>
+            <p class="card-text">{{repo.description}}</p>
+        </div>
+        <div class="card-footer bg-transparent border-success"></div>
+    </div>
+</div>

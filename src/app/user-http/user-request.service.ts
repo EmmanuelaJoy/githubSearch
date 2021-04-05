@@ -13,6 +13,7 @@ export class UserRequestService {
   user!: User;
   repos: Repository[];
   private username: string;
+  private repoName: string;
   private clientId = 'a1bb7a683b14df0d15bc';
   private clientSecret = 'a4b786074f23372af39cda791c1fa5d60f94e847';
   private baseUrl: string;
@@ -23,6 +24,7 @@ export class UserRequestService {
     this.user = new User("", "", "", 0, 0, 0, new Date(), "");
     this.repos = [new Repository("", "")];
     this.username = 'emmanuelajoy'
+    this.repoName = 'goals'
     this.baseUrl = "https://api.github.com/users/"
     this.userUrl = this.baseUrl + this.username + '?accesstoken='
     this.repoUrl = this.baseUrl + this.username + '/repos' + '?accesstoken='
@@ -73,6 +75,10 @@ export class UserRequestService {
 
   updateUserAccount(username: any) {
     this.username = username
+  }
+
+  updateRepo(repoName: any) {
+    this.repoName = repoName
   }
 
 }
