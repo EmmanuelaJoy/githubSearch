@@ -1,7 +1,8 @@
 <div class="container">
     <form #searchForm='ngForm'>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Enter username here">
+            <input type="text" class="form-control" placeholder="Enter a Github username here" [(ngModel)]="username"
+                (keyup)="findUserAccount()" name="username">
         </div>
     </form>
     <div *ngIf="user">

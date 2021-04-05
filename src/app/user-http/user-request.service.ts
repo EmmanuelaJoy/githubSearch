@@ -69,5 +69,8 @@ export class UserRequestService {
     return this.http.get<any>(this.repoUrl)
   }
 
+  updateUserAccount(username: string) {
+    this.username = username
+  }
 
 }

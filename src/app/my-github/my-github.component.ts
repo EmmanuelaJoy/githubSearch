@@ -17,7 +17,8 @@ export class MyGithubComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  findUserAccount() {
+    this.userService.updateUserAccount(this.username);
     this.userService.userRequest()
     this.user = this.userService.user
     console.log(this.user)
@@ -25,6 +26,10 @@ export class MyGithubComponent implements OnInit {
       console.log(data)
       this.repos = data
     })
+
+  }
+
+  ngOnInit(): void {
 
   }
 
