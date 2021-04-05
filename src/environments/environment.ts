@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   accessToken: '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',
   url: 'https://api.github.com/users/{}?access_token=',
-  reposUrl: 'https://api.github.com/users/{}/repo'
+  reposUrl: 'https://api.github.com/users/{}/repos'
 };
 
 /*

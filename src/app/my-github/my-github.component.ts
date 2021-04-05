@@ -11,7 +11,8 @@ import { UserRequestService } from '../user-http/user-request.service'
 export class MyGithubComponent implements OnInit {
 
   user!: User;
-  repo!: Repository;
+  repos!: Repository[];
+  username!: string;
   constructor(private userService: UserRequestService) {
 
   }
@@ -20,9 +21,11 @@ export class MyGithubComponent implements OnInit {
     this.userService.userRequest()
     this.user = this.userService.user
     console.log(this.user)
-    this.userService.repositoryRequest()
-    this.repo = this.userService.repo
-    console.log(this.repo)
+    this.userService.repositoryRequest().subscribe((data) => {
+      console.log(data)
+      this.repos = data
+    })
+
   }
 
 }
