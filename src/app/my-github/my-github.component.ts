@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user'
+import { Repository } from '../repository';
 import { UserRequestService } from '../user-http/user-request.service'
 
 @Component({
@@ -10,6 +11,7 @@ import { UserRequestService } from '../user-http/user-request.service'
 export class MyGithubComponent implements OnInit {
 
   user!: User;
+  repo!: Repository;
   constructor(private userService: UserRequestService) {
 
   }
@@ -18,6 +20,9 @@ export class MyGithubComponent implements OnInit {
     this.userService.userRequest()
     this.user = this.userService.user
     console.log(this.user)
+    this.userService.repositoryRequest()
+    this.repo = this.userService.repo
+    console.log(this.repo)
   }
 
 }
