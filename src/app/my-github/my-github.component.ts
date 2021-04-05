@@ -11,13 +11,13 @@ export class MyGithubComponent implements OnInit {
 
   user!: User;
   constructor(private userService: UserRequestService) {
-    this.userService.userRequest().subscribe(profile => {
-      console.log(profile)
-    });
+
   }
 
   ngOnInit(): void {
-
+    this.userService.userRequest()
+    this.user = this.userService.user
+    console.log(this.user)
   }
 
 }

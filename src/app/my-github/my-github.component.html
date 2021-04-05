@@ -1,1 +1,23 @@
-<p>it works</p>
+<div class="container" *ngIf="user">
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="{{user.profileUrl}}" alt="Profile Picture">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.name}}</h5>
+                    <ul class="card-text">
+                        <li>Username: {{user.name}}</li>
+                        <li *ngIf="user.bio">About: {{user.bio}}</li>
+                        <li>Number of public repositories: {{user.public_repos}}</li>
+                        <li>Followers: {{user.followers}}</li>
+                        <li>Following: {{user.following}}</li>
+                        <li>Created: {{user.created_at}}</li>
+                    </ul>
+                    <p><a href="{{user.siteLink}}" target=" " class="btn btn-success">View on Github</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
