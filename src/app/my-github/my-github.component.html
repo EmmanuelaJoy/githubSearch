@@ -1,12 +1,19 @@
 <div class="container">
+    <ng-progress></ng-progress>
     <div class="heading">
         <h1>Welcome to Github Search</h1>
         <h3>Find any Github account by entering a Github username below:</h3>
     </div>
     <form #searchForm='ngForm' id="searchForm">
         <div class="form-group">
-            <input type="search" class="form-control" placeholder="Enter a Github username here"
-                [(ngModel)]="inputtedUserName" (keyup)="findUserAccount()" name="username">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text btn-dark" id="basic-addon1" (click)="findUserAccount()"><i
+                            class="fas fa-search"></i></span>
+                </div>
+                <input type="search" class="form-control" placeholder="Enter a Github username here"
+                    [(ngModel)]="inputtedUserName" (keyup)="findUserAccount()" name="username">
+            </div>
         </div>
     </form>
     <small>You are viewing {{user.name}}'s Github account</small>
@@ -15,21 +22,27 @@
             <div class="row no-gutters">
                 <div class="col-md-4" id="profile">
                     <img id="profilePic" src="{{user.profileUrl}}" alt="Profile Picture">
-                    <p><a href="{{user.siteLink}}" target="blank" class="btn btn-outline-dark my-2 my-sm-0">View
-                            on Github</a></p>
+                    <h3>{{user.name}}</h3>
+                    <h6>{{user.bio}}</h6>
+                    <div class="buttons">
+                        <p><a class="btn btn-dark my-2 my-sm-0">{{user.followers}} Followers</a></p>
+                        <p><a class="btn btn-outline-dark my-2 my-sm-0">{{user.following}} Following</a></p>
+                    </div>
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
                         <h5 class="card-title">{{user.name}}</h5>
+                        <hr>
                         <ul class="card-text">
-                            <li>Username: {{user.name}}</li>
                             <li *ngIf="user.bio">About: {{user.bio}}</li>
-                            <li>Number of public repositories: {{user.public_repos}}</li>
-                            <li>Followers: {{user.followers}}</li>
-                            <li>Following: {{user.following}}</li>
-                            <li>Created on: {{user.created_at | date}}</li>
+                            <li *ngIf="user.location">Location: {{user.location}}</li>
+                            <li *ngIf="user.public_repos">Number of public repositories: {{user.public_repos}}</li>
+                            <li *ngIf="user.public_gists">Number of public gists: {{user.public_gists}}</li>
+                            <li>Created Account: {{user.created_at | dateCreated}}</li>
                         </ul>
-
+                        <p id="githubBtn"><a href="{{user.siteLink}}" target="blank"
+                                class="btn btn-outline-dark my-2 my-sm-0">View
+                                on Github</a></p>
                     </div>
                 </div>
             </div>

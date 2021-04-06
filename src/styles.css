@@ -1,11 +1,12 @@
 @import "~bootstrap/dist/css/bootstrap.css";
-@import url("https://fonts.googleapis.com/css2?family=Belgrano&family=Cormorant+Infant:ital,wght@0,500;1,700&family=Monda:wght@400;700&family=Vesper+Libre&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Belgrano&family=Cormorant:wght@300;400;500&family=Monda:wght@400;700&family=Noto+Sans+JP:wght@300&display=swap");
 
 * {
   margin: 0;
 }
 
 body {
-  font-family: "Vesper Libre", serif;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 400;
   font-size: 26px;
 }

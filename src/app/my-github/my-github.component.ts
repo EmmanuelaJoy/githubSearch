@@ -29,14 +29,7 @@ export class MyGithubComponent implements OnInit {
 
   findUserAccount() {
     this.userService.updateUserAccount(this.inputtedUserName);
-    this.userService.userRequest()
-    this.user = this.userService.user
-    console.log(this.user)
-    this.userService.repositoryRequest().subscribe((data) => {
-      this.repos = data
-      console.log(data)
-    })
-
+    this.myGithubAccount()
   }
 
   ngOnInit(): void {

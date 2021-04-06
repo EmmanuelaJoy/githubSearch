@@ -19,7 +19,7 @@ export class UserRequestService {
   private baseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.user = new User("", "", "", 0, 0, 0, new Date(), "");
+    this.user = new User("", "", "", "", 0, 0, 0, 0, new Date(), "");
     this.repos = [new Repository("", "")];
     this.username = 'emmanuelajoy'
     this.repoName = ''
@@ -31,7 +31,9 @@ export class UserRequestService {
       avatar_url: string;
       login: string;
       bio: string;
+      location: string;
       public_repos: number;
+      public_gists: number;
       followers: number;
       following: number;
       created_at: Date;
@@ -43,7 +45,9 @@ export class UserRequestService {
         this.user.profileUrl = response.avatar_url
         this.user.name = response.login
         this.user.bio = response.bio
+        this.user.location = response.location
         this.user.public_repos = response.public_repos
+        this.user.public_gists = response.public_gists
         this.user.followers = response.followers
         this.user.following = response.following
         this.user.created_at = response.created_at
@@ -53,11 +57,6 @@ export class UserRequestService {
       },
         error => {
           this.user.name = "Unavailable"
-          this.user.bio = " "
-          this.user.public_repos = 0
-          this.user.followers = 0
-          this.user.following = 0
-          this.user.created_at = new Date
 
           reject(error)
         })
@@ -77,9 +76,10 @@ export class UserRequestService {
     this.repoName = repoName
   }
 
+  authorization = environment.accessToken
   repoSearch() {
     return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName, ({
-      headers: new HttpHeaders({ Authorization: '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' })
+      headers: new HttpHeaders({ Authorization: this.authorization })
     }))
   }
 
