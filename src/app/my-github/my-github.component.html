@@ -1,9 +1,11 @@
 <div class="container">
     <ng-progress></ng-progress>
+
     <div class="heading">
         <h1>Welcome to Github Search</h1>
         <h3>Find any Github account by entering a Github username below:</h3>
     </div>
+
     <form #searchForm='ngForm' id="searchForm">
         <div class="form-group">
             <div class="input-group mb-3">
@@ -16,6 +18,7 @@
             </div>
         </div>
     </form>
+
     <small>You are viewing {{user.name}}'s Github account</small>
     <div *ngIf="user">
         <div class="card mb-3" id="user">
@@ -47,6 +50,7 @@
                 </div>
             </div>
         </div>
+
         <div class="card border-success mb-3" *ngIf="user.public_repos">
             <div class="card-header bg-success">Repositories</div>
             <div class="card-body" *ngFor="let repo of repos">
