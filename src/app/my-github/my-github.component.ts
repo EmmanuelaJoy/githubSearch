@@ -12,7 +12,7 @@ export class MyGithubComponent implements OnInit {
 
   user!: User;
   repos!: Repository[];
-  username: string = 'emmanuelajoy';
+  inputtedUserName: string = 'emmanuelajoy';
   constructor(private userService: UserRequestService) {
 
   }
@@ -28,7 +28,7 @@ export class MyGithubComponent implements OnInit {
   }
 
   findUserAccount() {
-    this.userService.updateUserAccount(this.username);
+    this.userService.updateUserAccount(this.inputtedUserName);
     this.userService.userRequest()
     this.user = this.userService.user
     console.log(this.user)

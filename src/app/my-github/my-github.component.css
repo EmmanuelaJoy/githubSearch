@@ -1,7 +1,31 @@
+.heading h1 {
+  padding: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 5s steps(40);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
 #searchForm {
   padding-top: 2em;
 }
 
-img {
+#profilePic {
   width: inherit;
+}
+
+.card-title {
+  text-transform: uppercase;
 }

@@ -17,8 +17,6 @@ export class UserRequestService {
   private clientId: string = 'a1bb7a683b14df0d15bc';
   private clientSecret: string = 'a4b786074f23372af39cda791c1fa5d60f94e847';
   private baseUrl: string;
-  private userUrl: string
-  private repoUrl: string;
 
   constructor(private http: HttpClient) {
     this.user = new User("", "", "", 0, 0, 0, new Date(), "");
@@ -26,8 +24,6 @@ export class UserRequestService {
     this.username = 'emmanuelajoy'
     this.repoName = ''
     this.baseUrl = "https://api.github.com/users/"
-    this.userUrl = this.baseUrl + this.username
-    this.repoUrl = this.baseUrl + this.username + '/repos'
   }
 
   userRequest() {
@@ -43,7 +39,7 @@ export class UserRequestService {
     }
 
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get<ApiResponse>(this.userUrl + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret).toPromise().then(response => {
+      this.http.get<ApiResponse>(this.baseUrl + this.username + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret).toPromise().then(response => {
         this.user.profileUrl = response.avatar_url
         this.user.name = response.login
         this.user.bio = response.bio
@@ -70,11 +66,11 @@ export class UserRequestService {
   }
 
   repositoryRequest(): Observable<any> {
-    return this.http.get<any>(this.repoUrl + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret)
+    return this.http.get<any>(this.baseUrl + this.username + '/repos' + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret)
   }
 
-  updateUserAccount(username: string) {
-    this.username = username
+  updateUserAccount(inputtedUserName: string) {
+    this.username = inputtedUserName
   }
 
   updateRepo(repoName: any) {

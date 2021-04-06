@@ -1,7 +1,7 @@
 <div class="container">
     <form #repoForm='ngForm'>
         <div class="form-group">
-            <input type="search" class="form-control" placeholder="Enter any Github repository name here"
+            <input type="search" id="search" class="form-control" placeholder="Enter any Github repository name here"
                 [(ngModel)]="repoName" (keyup)="findRepository()" name="repository">
         </div>
     </form>
