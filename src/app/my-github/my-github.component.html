@@ -1,5 +1,4 @@
 <div class="container">
-    <ng-progress></ng-progress>
 
     <div class="heading">
         <h1>Welcome to Github Search</h1>
@@ -37,11 +36,14 @@
                         <h5 class="card-title">{{user.name}}</h5>
                         <hr>
                         <ul class="card-text">
-                            <li *ngIf="user.bio">About: {{user.bio}}</li>
-                            <li *ngIf="user.location">Location: {{user.location}}</li>
-                            <li *ngIf="user.public_repos">Number of public repositories: {{user.public_repos}}</li>
-                            <li *ngIf="user.public_gists">Number of public gists: {{user.public_gists}}</li>
-                            <li>Created Account: {{user.created_at | dateCreated}}</li>
+                            <li *ngIf="user.bio">About: <span>{{user.bio}}</span></li>
+                            <li *ngIf="user.location">Location: <span>{{user.location}}</span></li>
+                            <li *ngIf="user.public_repos">Number of public repositories:
+                                <span>{{user.public_repos}}</span>
+                            </li>
+                            <li *ngIf="user.public_gists">Number of public gists: <span>{{user.public_gists}}</span>
+                            </li>
+                            <li>Created Account: <span>{{user.created_at | dateCreated}}</span></li>
                         </ul>
                         <p id="githubBtn"><a href="{{user.siteLink}}" target="blank"
                                 class="btn btn-outline-dark my-2 my-sm-0">View

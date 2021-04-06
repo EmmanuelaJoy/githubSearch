@@ -41,9 +41,9 @@
 
 #profilePic {
   width: inherit;
-  padding-inline: 3.5em;
+  padding-inline: 3em;
   border-radius: 50%;
-  margin-top: 1em;
+  margin-top: 2em;
 }
 
 #profile h3 {
@@ -79,6 +79,14 @@ ul {
 
 .card-body li {
   text-align: left;
+  font-weight: bold;
+  line-height: 2.2;
+}
+
+.card-body li span {
+  text-align: left;
+  font-style: normal;
+  font-weight: 400;
 }
 
 #githubBtn {
