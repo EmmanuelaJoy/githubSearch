@@ -11,6 +11,7 @@ import { MyGithubComponent } from './my-github/my-github.component';
 import { RepositorySearchComponent } from './repository-search/repository-search.component';
 import { DateCreatedPipe } from './date-created.pipe';
 import { HighlightDirective } from './highlight.directive';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HighlightDirective } from './highlight.directive';
     MyGithubComponent,
     RepositorySearchComponent,
     DateCreatedPipe,
-    HighlightDirective
+    HighlightDirective,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,

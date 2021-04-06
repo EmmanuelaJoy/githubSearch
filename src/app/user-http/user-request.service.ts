@@ -79,7 +79,7 @@ export class UserRequestService {
 
   repoSearch() {
     return this.http.get('https://api.github.com/search/repositories?q=' + this.repoName, ({
-      headers: new HttpHeaders({ Authorization: environment.accessToken })
+      headers: new HttpHeaders({ Authorization: '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' })
     }))
   }
 

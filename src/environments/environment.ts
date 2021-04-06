@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  accessToken: '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',
+  accessToken: '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',
   url: 'https://api.github.com/users/{}?access_token=',
   reposUrl: 'https://api.github.com/users/{}/repos'
 };
