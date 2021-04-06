@@ -10,6 +10,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MyGithubComponent } from './my-github/my-github.component';
 import { RepositorySearchComponent } from './repository-search/repository-search.component';
 import { DateCreatedPipe } from './date-created.pipe';
+import { HighlightDirective } from './highlight.directive';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { DateCreatedPipe } from './date-created.pipe';
     NavbarComponent,
     MyGithubComponent,
     RepositorySearchComponent,
-    DateCreatedPipe
+    DateCreatedPipe,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
