@@ -5,7 +5,9 @@ import { RepositorySearchComponent } from './repository-search/repository-search
 
 const routes: Routes = [
   { path: 'user', component: MyGithubComponent },
-  { path: 'repository', component: RepositorySearchComponent }
+  { path: 'repository', component: RepositorySearchComponent },
+
+  { path: '', redirectTo: "/user", pathMatch: "full" },
 ];
 
 @NgModule({

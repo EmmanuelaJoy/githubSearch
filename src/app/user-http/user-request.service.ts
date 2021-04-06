@@ -14,8 +14,8 @@ export class UserRequestService {
   repos: Repository[];
   username: string;
   repoName: string;
-  private clientId: string = 'a1bb7a683b14df0d15bc';
-  private clientSecret: string = 'a4b786074f23372af39cda791c1fa5d60f94e847';
+  private clientId = 'a1bb7a683b14df0d15bc';
+  private clientSecret = 'a4b786074f23372af39cda791c1fa5d60f94e847';
   private baseUrl: string;
 
   constructor(private http: HttpClient) {

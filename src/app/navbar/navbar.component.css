@@ -2,3 +2,12 @@
   margin-right: 0.5em;
   color: #28a745;
 }
+
+.navbar-brand {
+  font-size: 2em;
+}
+
+.navbar-nav {
+  font-size: 1.5em;
+  margin-left: 1em;
+}
