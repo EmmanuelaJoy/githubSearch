@@ -1,0 +1,20 @@
+h2 {
+  padding: 2em;
+  font-family: "Belgrano", serif;
+  text-align: center;
+}
+
+.card-header {
+  text-transform: uppercase;
+}
+
+.card-title {
+  text-transform: uppercase;
+  font-family: "Monda", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.fas.fa-bookmark {
+  font-size: 1rem;
+  padding: 1em;
+}

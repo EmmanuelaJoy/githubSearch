@@ -1,6 +1,11 @@
 @import "~bootstrap/dist/css/bootstrap.css";
-@import url("https://fonts.googleapis.com/css2?family=Belgrano&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Belgrano&family=Cormorant+Infant:ital,wght@0,500;1,700&family=Monda:wght@400;700&family=Vesper+Libre&display=swap");
 
 * {
   margin: 0;
+}
+
+body {
+  font-family: "Vesper Libre", serif;
+  font-size: 26px;
 }
